@@ -1,0 +1,1 @@
+gcc  -c  -g -Wall -O0 -std=c99 -D_SVID_SOURCE  graph01.c

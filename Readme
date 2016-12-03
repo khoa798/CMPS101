@@ -1,0 +1,86 @@
+I have read and understood the Academic Misconduct Policy for
+Undergraduates, the related sections 102.01-102.016 and 105.15 of the
+UC Santa Cruz Student Policies and Regulations Handbook,
+and the related sections of the class syllabus."
+Khoa hoang, klhoang
+
+I wrote this assignment using only permitted sources
+that do not require citation, according to the syllabus.
+
+Files:
+	DijkstraTest.in
+	PrimTest.in
+	edgeVec.c
+	edgeVec.h
+	greedy04.c
+	loadWgtGraph.c
+	loadWgtGraph.h
+	Makefile
+	minPQ.c
+	minPQ.h
+	README
+	
+	
+	
+Description:
+This program implements Prim's and Dijkstra's algorithm for finding minium spanning trees. It utilizes the edgeVect ADT and min priority queue ADT. The edgeVect ADT is inspired by the IntVect ADT from previous programming assignments. These algorithms find the minimum spanning tree(with minimal costs) based on where the search starts. The user can use this program by doing
+greedy04 -P / -D (starting vertex) test.in
+
+Inputs and test files:
+There are two separate test files for both algorithms, both named respectively. For PrimTest.in, the test file was inspired by the textbook example. Suppose we started our search at 4.
+ The search would first begin at 4, 
+comparing all the potential candidate edges, it would see that
+1 is the lowest weight to go to 5.
+Thus, 4->5 with weight of 5 would be added to the tree
+Then the following fringe vertices would be discovered: 6 and 9
+Prim's algorithm would compare all of the candidate edges and go discover the vertex with the most minimal weight,
+vertex 3 and 9 are of similar weights however, 2.0. The algorithm goes in numerically increasing order, thus
+it would be 5->3. Now the current minimum spanning tree consists of vertex: 4 5 3
+
+When the graph is printed, the output is correct, showing the correct parents. For example, 4's parent is -1, because the algorithm
+started its search there. 5's parent is 4, as it was the second discovered vertex and 3's parent is 4.
+
+Here is the following finished graph:
+vertex  status  parent  priority
+1         t       2        2.00
+2         t       3        4.00
+3         t       4        2.00
+4         t       -1       0.00
+5         t       4        1.00
+6         t       9        5.00
+7         t       8        3.00
+8         t       3        2.00
+9         t       7        1.00
+
+While the original graph is here
+-----------------------ORIGINAL GRAPH------------------
+The graph has 6 nodes.
+1       [(5, 2.00), (2, 3.00)]
+2       [(3, 4.00), (6, 5.00)]
+3       [(4, 7.00)]
+4       [(2, 6.00)]
+5       []
+6       []
+
+DijkstraTest.in works similar to Prim's algorithm, minus the fact that the total weight is computed based on its distance from the starting vertex.
+Here is the resulting Original graph with the search starting at 4. 4 then computes all the total potential weights 
+-----------------------ORIGINAL GRAPH------------------
+The graph has 6 nodes.
+1       [(5, 2.00), (2, 3.00)]
+2       [(3, 4.00), (6, 5.00)]
+3       [(4, 7.00)]
+4       [(2, 6.00)]
+5       []
+6       []
+
+and the resulting graph would be here
+
+vertex  status  parent  priority
+1         u       -1       INFINITY
+2         t       4        6.00
+3         t       2        10.00
+4         t       -1       0.00
+5         u       -1       INFINITY
+6         t       2        11.00
+
+However, INFINITY is changed here for legibility reasons. 1 and 5 are never discovered based on this search, thus their fringeWgt is still set to INFINITY.

@@ -1,0 +1,13 @@
+gcc  -c  -g -Wall -O0 -std=c99 -D_SVID_SOURCE  graph01.c
+graph01.c: In function ‘parseEdge’:
+graph01.c:44:39: warning: too many arguments for format [-Wformat-extra-args]
+    numFields = sscanf(line_parseEdge, "%d %d %lf %*s", &newE.from, &newE.to, &newE.weight, dummyString);
+                                       ^
+graph01.c: In function ‘main’:
+graph01.c:68:25: error: expected expression before ‘IntList’
+   adjVertices[e.from] = IntList.cons(e.to, adjVertices[e.from]);
+                         ^
+graph01.c:77:10: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘IntList {aka struct IntListNode *}’ [-Wformat=]
+   printf("%d \t %d ",k,adjVertices[k]);
+          ^
+make: *** [graph01.o] Error 1
