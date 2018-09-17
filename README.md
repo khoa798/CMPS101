@@ -1,6 +1,6 @@
-# CMPS101
+# Data Structures
 
-Past projects for CMPS101
+Past projects that implemented data structures in Java and C
 Some of the data structures implemented here are:
 
 The complexity analysis of common algorithms using asymptotic (big "O") notation is emphasized. 
